@@ -1,0 +1,77 @@
+package placement;
+
+import java.awt.List;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+
+public class PlacementBinomesCorrection {
+
+	private static Map<String, String> mapBinome = new HashMap<>();;
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+	String [] nomsArrays = { "Claire", "Fatiha", "Massinissa", "Adel", "Jacques","Zakaria", "Anice", "Tarek", "Josse", "Régis");declarerUnBinom("Ha", "David"); genererPlacementClasse(nomsArrays, mapBinome);}
+		//String[] nomsArrays = {"Claire", "Fatiha", "Massinissa", "Adel", "Jacques","Zakaria", "Anice", "Tarek", "Josse", "Rgis");declarerUnBinom("Ha", "David"); genererPlacementClasse(nomsArrays, mapBinome); };
+		
+			
+	}
+
+	private static void genererPlacementClasse(String[] nomsArrays, Map<String, String> mapBinome) {
+		// TODO Auto-generated method stub
+		List<String> nomsList = new ArrayList<>(Arrays.asList(nomsArrays));
+		List<String> nomsListSansBinom=null;
+		
+		boolean premierBinomeFait=false;
+		String nom =null;
+		String binomeAeviter = null;
+		
+		while(! nomsList.isEmpty()) {
+			
+			if(!premierBinomeFait) {
+				nom = getRandomNom(nomsList);
+				System.out.print(nom+"--->");
+				binomeAeviter=mapBinome.get(nom);
+				premierBinomeFait=true;
+			} else {
+			nomsListSansBinom = new ArrayList <> (nomsList);
+			nomsListSansBinom.remove(binomeAeviter);
+			if(nomsListSansBinom.isEmpty()) {
+				nom = binomeAeviter;
+			
+		} else {
+			nom = getRandomNom(nomsListSansBinom);
+		}
+		System.out.println(nom);
+		premierBinomeFait =false;
+		}
+		nomsList.remove(nom);
+	}
+	}
+	private static String getRandomNom (List<String> nomsList) {
+		randomr=new Random();
+		int i =r.next
+	}
+
+	private static void declarerUnBinom(String string, String string2) {
+		// TODO Auto-generated method stub
+		mapBinome.put(nom1, nom2);
+		mapBinome.put(nom2, nom1); 
+	}
+	
+	
+	
+	
+//	private static void genererPlacementClasse(String[] nomsArrays, Map<String,String> mapBinome) { 
+//		List<String> nomsList = new ArrayList<>( Arrays.asList(nomsArrays)); 
+//		List<String> nomsListSansBinom = null; boolean premierBinomeFait = false; String nom = null; String binomeAeviter = null; while( ! nomsList.isEmpty() ) { if(! premierBinomeFait) { nom = getRandomNom(nomsList); System.out.print(nom+" ­­­> "); binomeAeviter = mapBinome.get(nom); premierBinomeFait = true; }  else { nomsListSansBinom = new ArrayList<>(nomsList); nomsListSansBinom.remove(binomeAeviter); if(nomsListSansBinom.isEmpty()) { nom = binomeAeviter; 
+//	} else { nom = getRandomNom(nomsListSansBinom); } 
+//		System.out.println(nom); 
+//		premierBinomeFait = false; } nomsList.remove(nom); } } 
+//	private static String getRandomNom(List<String> nomsList) 
+//	{ Random r = new Random(); int i = r.nextInt(nomsList.size()); return nomsList.get(i); } 
+//	private static void declarerUnBinom(String nom1, String nom2) {
+//		mapBinome.put(nom1, nom2); mapBinome.put(nom2, nom1); }
+}

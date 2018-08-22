@@ -1,0 +1,13 @@
+package placement;
+
+import java.util.HashMap;
+
+public class CorrectionAvecBinomes {
+	
+	private static Map<String, String> mapBinome = new HashMap<>();;
+	
+public static void main(String[] args) { String[] nomsArrays = {"Claire", "Fatiha", "Massinissa", "Adel", "Jacques","Zakaria", "Anice", "Tarek", "Josse", "Rgis"); 
+	declarerUnBinom("Ha", "David");	genererPlacementClasse(nomsArrays, mapBinome); }
+	}
+	
+}

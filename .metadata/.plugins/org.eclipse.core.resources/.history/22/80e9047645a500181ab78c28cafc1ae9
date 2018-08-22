@@ -1,0 +1,45 @@
+package cdi.projet.ihm.component;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Image;
+
+import javax.swing.BorderFactory;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+import cdi.projet.ihm.tools.Util;
+
+public class GameInformationPanel extends JPanel {
+
+	private static final long serialVersionUID = 1L;//????????????????????????????????
+	
+	private Image imgMiddle = Util.getImg("resources/avion/avion_middle_position.png");//image avion dans le bloc du top
+
+	private JLabel nbViesLabel;//Variable (objet)nbr de vie dans le bloc
+	private GamePanel gamePanel;
+	
+	public GameInformationPanel(GamePanel pan) {
+		this.gamePanel = pan;
+		this.nbViesLabel = new JLabel(Integer.toString(this.gamePanel.getPlane().getNbVies()));//attribue le nombre de vie dans la variable
+		this.setBackground(Color.CYAN);//couleur du bloc au top.
+		this.setPreferredSize(new Dimension(500, 26));//dimenssion
+		BorderLayout borderLayout = new BorderLayout();
+		this.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 7));
+		this.setLayout(borderLayout);
+		this.add(this.nbViesLabel,BorderLayout.EAST);//place le nombre de vie a droite
+	}
+	
+	public void paintComponent(Graphics g){
+		super.paintComponent(g);
+		this.nbViesLabel.setText(Integer.toString(this.gamePanel.getPlane().getNbVies()));//afficher le nbr vie
+		this.nbViesLabel.repaint();//repaint le nouvelle affichage de vie
+		
+		Graphics2D g2d = (Graphics2D) g.create();
+		g2d.drawImage(imgMiddle, 452, 3, 20, 20, this);//placement de l'icone avion.
+	}
+	
+}

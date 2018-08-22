@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- WARNING: Eclipse auto-generated file.
+              Any modifications will be overwritten.
+              To include a user specific buildfile here, simply create one in the same
+              directory with the processing instruction <?eclipse.ant.import?>
+              as the first entry and export the buildfile again. --><project basedir="." default="build" name="AFPA COMPLET">
+    <property environment="env"/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="1.8"/>
+    <property name="source" value="1.8"/>
+    <path id="AFPA COMPLET.classpath">
+        <pathelement location="bin"/>
+    </path>
+    <target name="init">
+        <mkdir dir="bin"/>
+        <copy includeemptydirs="false" todir="bin">
+            <fileset dir="src">
+                <exclude name="**/*.launch"/>
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="clean">
+        <delete dir="bin"/>
+    </target>
+    <target depends="clean" name="cleanall"/>
+    <target depends="build-subprojects,build-project" name="build"/>
+    <target name="build-subprojects"/>
+    <target depends="init" name="build-project">
+        <echo message="${ant.project.name}: ${ant.file}"/>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" includeantruntime="false" source="${source}" target="${target}">
+            <src path="src"/>
+            <classpath refid="AFPA COMPLET.classpath"/>
+        </javac>
+    </target>
+    <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
+    <target description="copy Eclipse compiler jars to ant lib directory" name="init-eclipse-compiler">
+        <copy todir="${ant.library.dir}">
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </copy>
+        <unzip dest="${ant.library.dir}">
+            <patternset includes="jdtCompilerAdapter.jar"/>
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </unzip>
+    </target>
+    <target description="compile project with Eclipse compiler" name="build-eclipse-compiler">
+        <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
+        <antcall target="build"/>
+    </target>
+    <target name="calendrier">
+        <java classname="TP7.calendrier" failonerror="true" fork="yes">
+            <classpath refid="AFPA COMPLET.classpath"/>
+        </java>
+    </target>
+    <target name="dmpresta">
+        <java classname="DM.dmpresta" failonerror="true" fork="yes">
+            <classpath refid="AFPA COMPLET.classpath"/>
+        </java>
+    </target>
+    <target name="Lecon4et5ExoTEMP">
+        <java classname="Tableaux.Lecon4et5ExoTEMP" failonerror="true" fork="yes">
+            <classpath refid="AFPA COMPLET.classpath"/>
+        </java>
+    </target>
+    <target name="Tp7exo1">
+        <java classname="TP7.Tp7exo1" failonerror="true" fork="yes">
+            <classpath refid="AFPA COMPLET.classpath"/>
+        </java>
+    </target>
+    <target name="Tp7exo3">
+        <java classname="TP7.Tp7exo3" failonerror="true" fork="yes">
+            <classpath refid="AFPA COMPLET.classpath"/>
+        </java>
+    </target>
+    <target name="Tp7exo4">
+        <java classname="TP7.Tp7exo4" failonerror="true" fork="yes">
+            <classpath refid="AFPA COMPLET.classpath"/>
+        </java>
+    </target>
+    <target name="Tp7exo5">
+        <java classname="TP7.Tp7exo5" failonerror="true" fork="yes">
+            <classpath refid="AFPA COMPLET.classpath"/>
+        </java>
+    </target>
+    <target name="Tp7Exo5MotsDesordre">
+        <java classname="TP7.Tp7Exo5MotsDesordre" failonerror="true" fork="yes">
+            <classpath refid="AFPA COMPLET.classpath"/>
+        </java>
+    </target>
+    <target name="Tp7ExoCorrection">
+        <java classname="TP7.Tp7ExoCorrection" failonerror="true" fork="yes">
+            <classpath refid="AFPA COMPLET.classpath"/>
+        </java>
+    </target>
+    <target name="Lecon4et5ExoMINMAX">
+        <java classname="Tableaux.Lecon4et5ExoMINMAX" failonerror="true" fork="yes">
+            <classpath refid="AFPA COMPLET.classpath"/>
+        </java>
+    </target>
+    <target name="Caisse">
+        <java classname="TPCaisseETSecu.Caisse" failonerror="true" fork="yes">
+            <classpath refid="AFPA COMPLET.classpath"/>
+        </java>
+    </target>
+    <target name="Secu">
+        <java classname="TPCaisseETSecu.Secu" failonerror="true" fork="yes">
+            <classpath refid="AFPA COMPLET.classpath"/>
+        </java>
+    </target>
+</project>

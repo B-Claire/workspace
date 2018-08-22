@@ -1,0 +1,20 @@
+package placement;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		String[] nomsArrays = { "Claire", "Fatiha", "Massinissa", "Adel", "Jacques", "Zackaria", "Anice", "Tarek",
+				"Josse", "Regis", "Ha", "David"
+
+		};
+		genererPlacementClasse(nomsArrays);
+	}
+
+	private static void genererPlacementClasse(String[] nomsArrays) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}
